@@ -11,6 +11,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WeekOpdrachtDependencyInjection.Business;
+using WeekOpdrachtDependencyInjection.Business.Interfaces;
 
 namespace WeekOpdrachtDependencyInjection
 {
@@ -26,7 +28,7 @@ namespace WeekOpdrachtDependencyInjection
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddScoped<ICalculatePiService, CalculatePiService>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
