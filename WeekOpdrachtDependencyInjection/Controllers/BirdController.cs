@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WeekOpdrachtDependencyInjection.Business.Entities;
 
 namespace WeekOpdrachtDependencyInjection.Controllers
 {
@@ -10,21 +11,24 @@ namespace WeekOpdrachtDependencyInjection.Controllers
         [Route("duck")]
         public IActionResult Duck()
         {
-            return Ok("quack");
+            Duck duck = new();
+            return Ok(duck.Sound());
         }
 
         [HttpGet]
         [Route("goose")]
         public IActionResult Goose()
         {
-            return Ok("honk");
+            Goose goose = new();
+            return Ok(goose.Sound());
         }
 
         [HttpGet]
         [Route("chicken")]
         public IActionResult Chicken()
         {
-            return Ok("cluck");
+            Chicken chicken = new();
+            return Ok(chicken.Sound());
         }
     }
 }

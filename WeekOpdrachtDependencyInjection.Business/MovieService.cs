@@ -2,21 +2,39 @@
 using System.Collections.Generic;
 using System.Linq;
 using WeekOpdrachtDependencyInjection.Business.Entities;
+using WeekOpdrachtDependencyInjection.Business.Interfaces;
 
 namespace WeekOpdrachtDependencyInjection.Business
 {
     public class MovieService
     {
-        public List<Movie> Movies = new List<Movie>
-        {
-            new Movie { Id = 1, Title = "Jaws", ReleaseDate = new DateTime(1975,1,1)},
-            new Movie { Id = 2, Title = "Luca", ReleaseDate = new DateTime(2021,1,1)},
-            new Movie { Id = 3, Title = "Kill Bill", ReleaseDate = new DateTime(2003,1,1)},
-        };
 
-        public Movie GetById(int id)
+        private readonly IRepository<Movie> _movieRepository;
+
+        public MovieService(IRepository<Movie> movieRepository)
         {
-            return Movies.Single(x=>x.Id == id);
+            this._movieRepository = movieRepository;
+        }
+
+        public void Save(Movie movie) 
+        {
+            _movieRepository.Add(movie);
+            _movieRepository.Save();
+        }
+
+        public Movie Get(int id)
+        {
+            return GetAll().Single(x => x.Id == id);
+        }
+
+        public Movie Get(string name)
+        {
+            return GetAll().Single(x => x.Title == name);
+        }
+
+        public List<Movie> GetAll()
+        {
+            return _movieRepository.GetAll();
         }
     }
 }
