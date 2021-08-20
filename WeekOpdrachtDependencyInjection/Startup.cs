@@ -8,7 +8,6 @@ using Microsoft.OpenApi.Models;
 using WeekOpdrachtDependencyInjection.Business;
 using WeekOpdrachtDependencyInjection.Business.Entities;
 using WeekOpdrachtDependencyInjection.Business.Interfaces;
-using System.Linq;
 
 namespace WeekOpdrachtDependencyInjection
 {

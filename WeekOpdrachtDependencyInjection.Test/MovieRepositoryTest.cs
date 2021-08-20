@@ -1,9 +1,9 @@
-﻿using Xunit;
-using Moq;
+﻿using Moq;
+using System.Collections.Generic;
 using WeekOpdrachtDependencyInjection.Business;
 using WeekOpdrachtDependencyInjection.Business.Entities;
 using WeekOpdrachtDependencyInjection.Business.Interfaces;
-using System.Collections.Generic;
+using Xunit;
 
 namespace WeekOpdrachtDependencyInjection.Test
 
