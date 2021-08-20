@@ -31,7 +31,11 @@ namespace WeekOpdrachtDependencyInjection
 
             
             services.AddScoped<ICalculatePiService, CalculatePiService>();
-            
+
+            services.AddScoped<IBird, Goose>();
+            services.AddScoped<IBird, Chicken>();
+            services.AddScoped<IBird, Duck>();
+            services.AddScoped<IBirdSoundService, BirdSoundService>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
