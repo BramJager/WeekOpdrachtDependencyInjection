@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WeekOpdrachtDependencyInjection.Business.Entities
+namespace WeekOpdrachtDependencyInjection.Business.Interfaces
 {
-    public abstract class Bird
+    public interface IBird
     {
+        public abstract bool CanExecute(string bird);
         public abstract string Sound();
     }
 }
